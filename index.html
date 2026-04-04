@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESPERE! Acesso Incompleto Detectado</title>
+    <title>Acesso Exclusivo | Evoluglow</title>
     <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -28,7 +28,6 @@
             line-height: 1.6;
         }
 
-        /* BACKGROUND ANIMATION */
         canvas#canvas-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -38,17 +37,17 @@
 
         .container { width: 90%; max-width: 550px; margin: 0 auto; position: relative; z-index: 1; }
 
-        /* PADRÃO DE BOTÃO PREMIUM (UNIFICADO) */
+        /* PADRÃO DE BOTÃO (UNIFICADO) */
         .btn-premium {
             display: inline-block;
             width: 100%;
-            padding: 25px;
+            padding: 22px;
             background: var(--primary);
             color: #fff;
             text-decoration: none;
             font-weight: 900;
             font-family: 'Syncopate', sans-serif;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             letter-spacing: 1px;
             border-radius: 5px;
             text-transform: uppercase;
@@ -57,184 +56,90 @@
             border: none;
             cursor: pointer;
             text-align: center;
-            position: relative;
-            overflow: hidden;
         }
         .btn-premium:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 45px var(--primary-glow);
-            filter: brightness(1.2);
+            filter: brightness(1.1);
         }
-        .btn-premium::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: rgba(255,255,255,0.1);
-            transform: rotate(45deg);
-            transition: 0.5s;
-        }
-        .btn-premium:hover::after { left: 120%; }
 
         /* 🧲 PRIMEIRA DOBRA */
         .hero { text-align: center; padding: 100px 0 60px; }
-        .hero h1 { font-family: 'Syncopate', sans-serif; font-size: 1.2rem; line-height: 1.2; margin-bottom: 25px; letter-spacing: -1px; }
-        .hero h1 span { color: var(--primary); display: block; font-size: 1.8rem; font-weight: 900; margin-top: 15px; text-shadow: 0 0 30px var(--primary-glow); }
-        .hero .intro-p { font-size: 1.1rem; color: #fff; margin-bottom: 10px; font-weight: 400; }
-        .hero .sub { font-size: 0.95rem; color: var(--text-dim); max-width: 420px; margin: 0 auto 35px; }
+        .hero h1 { font-family: 'Syncopate', sans-serif; font-size: 1.2rem; line-height: 1.2; margin-bottom: 25px; }
+        .hero h1 span { color: var(--primary); display: block; font-size: 1.8rem; font-weight: 900; margin-top: 10px; }
+        .hero p { font-size: 1.1rem; color: #fff; margin-bottom: 10px; }
+        .hero .sub { font-size: 0.9rem; color: var(--text-dim); margin-bottom: 35px; }
 
         /* 💣 QUEBRA DE PADRÃO */
-        .pattern-break { padding: 60px 25px; text-align: center; background: rgba(255,0,0,0.02); border-radius: 20px; border: 1px solid var(--glass-border); margin: 40px 0; }
-        .pattern-break h2 { font-family: 'Syncopate', sans-serif; font-size: 0.85rem; color: var(--primary); margin-bottom: 25px; letter-spacing: 1px; }
-        .pattern-break p { font-size: 1rem; color: #ccc; margin-bottom: 20px; }
-        .pattern-break b { color: #fff; }
+        .pattern-break { padding: 60px 25px; text-align: center; border-radius: 20px; border: 1px solid var(--glass-border); margin: 40px 0; background: rgba(255,255,255,0.01); }
+        .pattern-break h2 { font-family: 'Syncopate', sans-serif; font-size: 0.8rem; color: var(--primary); margin-bottom: 20px; }
+        .pattern-break p { font-size: 1rem; color: #ccc; margin-bottom: 15px; }
 
         /* 🧠 APRESENTAÇÃO DO KIT */
         .kit-section { padding: 40px 0; }
-        .kit-header { text-align: center; margin-bottom: 40px; }
-        .kit-header h3 { font-family: 'Syncopate', sans-serif; font-size: 1.3rem; color: #fff; line-height: 1.3; margin-bottom: 15px; }
-        .kit-header p { font-size: 0.9rem; color: var(--text-dim); }
+        .category-title { font-family: 'Syncopate', sans-serif; font-size: 0.75rem; color: var(--accent); margin: 40px 0 20px; display: flex; align-items: center; gap: 10px; }
+        .category-title::after { content: ""; flex: 1; height: 1px; background: #222; }
 
-        .category-title { 
-            font-family: 'Syncopate', sans-serif; 
-            font-size: 0.75rem; 
-            color: var(--accent); 
-            margin: 40px 0 20px; 
-            letter-spacing: 2px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .category-title::after { content: ""; flex: 1; height: 1px; background: #1a1a1a; }
-
-        .grid-items { display: grid; grid-template-columns: 1fr; gap: 12px; }
-        .item-card {
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            padding: 18px 22px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            transition: 0.3s;
-        }
-        .item-card:hover { border-color: var(--primary); background: rgba(255,0,0,0.03); }
-        .item-card .icon { font-size: 1.2rem; filter: grayscale(1); transition: 0.3s; }
-        .item-card:hover .icon { filter: grayscale(0); }
-        .item-card .name { font-size: 0.9rem; color: #eee; font-weight: 500; }
+        .item-list { display: grid; grid-template-columns: 1fr; gap: 10px; }
+        .item-card { background: var(--glass); border: 1px solid var(--glass-border); padding: 15px 20px; border-radius: 8px; font-size: 0.9rem; display: flex; align-items: center; gap: 12px; }
+        .item-card span { color: var(--primary); font-weight: bold; }
 
         /* 💰 ANCORAGEM */
-        .anchor-box {
-            background: #000;
-            border: 2px solid #111;
-            padding: 50px 30px;
-            border-radius: 20px;
-            margin: 80px 0;
-            text-align: center;
-        }
-        .anchor-box h4 { font-family: 'Syncopate', sans-serif; font-size: 0.7rem; color: #444; margin-bottom: 30px; }
-        .price-row { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 0.95rem; color: #666; }
-        .price-row.total { 
-            margin-top: 30px; 
-            padding-top: 20px; 
-            border-top: 1px solid #111; 
-            color: #fff; 
-            font-weight: 800; 
-            font-size: 1.2rem; 
-        }
+        .anchor-box { background: #000; border: 2px solid #111; padding: 50px 30px; border-radius: 20px; margin: 80px 0; text-align: center; }
+        .anchor-row { display: flex; justify-content: space-between; margin-bottom: 10px; color: #666; font-size: 0.9rem; }
+        .anchor-total { margin-top: 20px; padding-top: 20px; border-top: 1px solid #111; color: #fff; font-weight: 800; font-size: 1.1rem; }
         .strike { text-decoration: line-through; color: var(--primary); opacity: 0.6; }
 
-        .final-offer { padding: 40px 0; }
-        .final-offer p { font-size: 1.1rem; color: #fff; }
-        .price-tag { font-size: 5rem; font-weight: 900; letter-spacing: -4px; margin: 15px 0; text-shadow: 0 0 40px rgba(255,255,255,0.05); }
-        .price-tag small { font-size: 1.5rem; letter-spacing: 0; vertical-align: top; margin-top: 15px; display: inline-block; }
-
         /* 🧠 BENEFÍCIOS */
-        .benefits-list { margin: 60px 0; }
-        .benefit-item { display: flex; align-items: center; gap: 18px; margin-bottom: 25px; background: rgba(255,255,255,0.01); padding: 15px; border-radius: 12px; border: 1px solid transparent; transition: 0.3s; }
-        .benefit-item:hover { border-color: var(--glass-border); background: rgba(255,255,255,0.03); }
-        .benefit-item .check { color: var(--primary); font-weight: 900; font-size: 1.2rem; }
-        .benefit-item p { font-size: 0.95rem; color: #ccc; }
+        .benefits { padding: 40px 0; }
+        .benefit-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; font-size: 0.95rem; }
+        .benefit-item i { color: var(--primary); font-style: normal; font-weight: 900; }
 
         /* 🔥 VISUALIZAÇÃO */
-        .visualization { 
-            background: radial-gradient(circle at top, rgba(212, 175, 55, 0.05), transparent); 
-            padding: 70px 25px; 
-            border-radius: 25px; 
-            text-align: center; 
-            margin: 80px 0;
-            border: 1px solid rgba(212, 175, 55, 0.1);
-        }
-        .visualization h4 { font-family: 'Syncopate', sans-serif; font-size: 0.8rem; color: var(--accent); margin-bottom: 30px; letter-spacing: 2px; }
-        .v-text { font-size: 1.15rem; margin-bottom: 20px; color: #fff; font-weight: 300; font-style: italic; opacity: 0.9; }
+        .visual { background: radial-gradient(circle at center, rgba(212, 175, 55, 0.05), transparent); padding: 60px 25px; text-align: center; border-radius: 20px; margin: 60px 0; border: 1px solid rgba(255,255,255,0.03); }
+        .visual h4 { font-family: 'Syncopate', sans-serif; font-size: 0.8rem; color: var(--accent); margin-bottom: 25px; }
+        .visual p { font-size: 1.1rem; margin-bottom: 15px; opacity: 0.9; font-weight: 300; }
 
-        /* ⭐ PROVA SOCIAL */
+        /* ⭐ PROVA SOCIAL (MOVIDA PARA ANTES DO CTA) */
         .testimonials { padding: 60px 0; }
-        .t-card { background: var(--glass); border: 1px solid var(--glass-border); padding: 25px; border-radius: 15px; margin-bottom: 15px; }
-        .t-header { display: flex; gap: 4px; color: var(--accent); font-size: 0.7rem; margin-bottom: 12px; }
-        .t-content { font-size: 0.9rem; color: #ddd; font-style: italic; }
-        .t-user { display: block; margin-top: 15px; font-size: 0.75rem; color: #555; font-family: monospace; }
+        .t-card { background: var(--glass); border: 1px solid var(--glass-border); padding: 20px; border-radius: 12px; margin-bottom: 15px; }
+        .t-stars { color: var(--accent); font-size: 0.7rem; margin-bottom: 8px; display: block; }
+        .t-user { display: block; margin-top: 10px; font-size: 0.7rem; color: #444; font-family: monospace; }
 
         /* ⏳ URGÊNCIA */
-        .urgency-banner { text-align: center; padding: 40px 0; border-top: 1px solid #111; }
-        .urgency-tag { color: var(--primary); font-family: 'Syncopate', sans-serif; font-size: 0.6rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; display: block; }
-        
-        /* 💣 GATILHO FINAL */
-        .final-trigger { text-align: center; margin-bottom: 30px; }
-        .final-trigger p { font-size: 1.2rem; line-height: 1.5; color: #fff; }
+        .urgency { text-align: center; padding: 40px 0; }
+        .urgency p { color: var(--primary); font-family: 'Syncopate', sans-serif; font-size: 0.65rem; letter-spacing: 2px; }
 
-        /* 🔥 DOBRA DO CTA (CORREÇÃO DE POSIÇÃO) */
-        .cta-section { 
-            padding: 40px 0 80px; 
-            text-align: center; 
-            background: radial-gradient(circle at bottom, rgba(255,0,0,0.05), transparent);
-        }
+        /* 🔥 DOBRA DO CTA (CORREÇÃO CRÍTICA) */
+        .cta-box { text-align: center; padding: 40px 0 80px; scroll-margin-top: 50px; }
+        .decision-text { font-size: 1.2rem; margin-bottom: 30px; font-weight: 300; }
         
-        .microcopy { 
-            display: block; 
-            margin-top: 15px; 
-            font-size: 0.65rem; 
-            color: #444; 
-            text-transform: uppercase; 
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
+        .price-display { margin-bottom: 20px; }
+        .old-price { font-size: 0.9rem; color: #444; text-decoration: line-through; }
+        .new-price { font-size: 2.5rem; font-weight: 900; color: #fff; display: block; margin-top: -5px; }
 
-        .btn-refusal {
-            display: inline-block;
-            margin-top: 25px;
-            color: #222;
-            text-decoration: none;
-            font-size: 0.75rem;
-            font-weight: 500;
-            transition: 0.3s;
-            font-family: 'Inter', sans-serif;
-        }
-        .btn-refusal:hover { color: #555; }
+        .microcopy { display: block; margin-top: 15px; font-size: 0.65rem; color: #444; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* ❌ BOTÃO DE RECUSA */
+        .btn-refuse { display: inline-block; margin-top: 30px; color: #222; text-decoration: none; font-size: 0.75rem; transition: 0.3s; border-bottom: 1px solid transparent; }
+        .btn-refuse:hover { color: #444; border-bottom-color: #444; }
 
         /* 🔒 GARANTIA */
-        .guarantee-fold { background: #000; padding: 100px 25px; text-align: center; border-top: 1px solid #111; }
-        .g-icon { width: 60px; margin-bottom: 30px; filter: invert(1); opacity: 0.4; }
-        .guarantee-fold h4 { font-family: 'Syncopate', sans-serif; font-size: 0.9rem; margin-bottom: 15px; color: #fff; }
-        .guarantee-fold p { font-size: 0.85rem; color: #555; max-width: 350px; margin: 0 auto; }
+        .guarantee { background: #000; padding: 80px 25px; text-align: center; border-top: 1px solid #111; }
+        .guarantee h4 { font-family: 'Syncopate', sans-serif; font-size: 0.8rem; margin-bottom: 10px; }
+        .guarantee p { font-size: 0.85rem; color: #555; max-width: 300px; margin: 0 auto; }
 
-        /* 💥 FECHAMENTO FINAL */
-        .final-closing { padding: 100px 25px; text-align: center; }
-        .final-closing p { font-size: 1.2rem; color: #666; margin-bottom: 15px; }
-
-        /* 📄 RODAPÉ */
-        footer { padding: 80px 0; text-align: center; border-top: 1px solid #111; background: #000; }
-        .f-email { color: #fff !important; font-weight: 900; font-size: 1.2rem; text-decoration: none; display: block; margin-bottom: 15px; }
-        .f-social { font-size: 0.8rem; color: #333; margin-bottom: 30px; }
-        .f-legal { margin-top: 40px; display: flex; justify-content: center; gap: 20px; }
-        .f-legal a { color: #1a1a1a; text-decoration: none; font-size: 0.65rem; text-transform: uppercase; }
+        /* 📄 CONTATO E RODAPÉ */
+        footer { padding: 80px 0; background: #000; border-top: 1px solid #111; text-align: center; }
+        .contact-info { margin-bottom: 40px; }
+        .contact-info h5 { font-family: 'Syncopate', sans-serif; font-size: 0.7rem; color: #333; margin-bottom: 20px; letter-spacing: 2px; }
+        .contact-link { display: block; color: #fff; text-decoration: none; font-size: 1rem; margin-bottom: 10px; font-weight: 600; transition: 0.3s; }
+        .contact-link:hover { color: var(--primary); }
+        .footer-legal { font-size: 0.5rem; color: #111; text-transform: uppercase; letter-spacing: 1px; margin-top: 40px; }
 
         @media (max-width: 480px) {
-            .price-tag { font-size: 4rem; }
             .hero h1 span { font-size: 1.5rem; }
-            .visualization .v-text { font-size: 1rem; }
+            .new-price { font-size: 2rem; }
         }
     </style>
 </head>
@@ -244,125 +149,147 @@
 
     <section class="hero container">
         <h1>ESPERE… NÃO FECHE ESSA PÁGINA AINDA</h1>
-        <p class="intro-p">Você já começou…</p>
-        <p class="intro-p" style="font-weight: 800;">mas ainda não está completo.</p>
+        <p>Você já começou… mas ainda não está completo.</p>
         <div class="sub">Se você quer evoluir mais rápido, você precisa da base que a maioria não tem.</div>
         
-        <div style="margin-top: 30px;">
-            <a href="#oferta" class="btn-premium">VER O ACESSO COMPLETO</a>
-        </div>
+        <a href="#oferta" class="btn-premium">VER O ACESSO COMPLETO</a>
     </section>
 
     <section class="container pattern-break">
         <h2>A MAIORIA DAS PESSOAS ERRA AQUI.</h2>
-        <p>Elas compram um método, aprendem uma técnica isolada...</p>
-        <p>Mas não possuem o <b>REPERTÓRIO</b> necessário para sustentar a mudança.</p>
-        <p>Sem profundidade mental, você volta pro mesmo padrão em poucos dias. Este kit é a fundação para que o método funcione de verdade.</p>
+        <p>Elas compram um método, mas não têm repertório para aplicar.</p>
+        <p>Sem profundidade intelectual, você volta para o mesmo padrão em 3 dias. <b>A técnica sem a base é inútil.</b></p>
     </section>
 
     <section class="container kit-section">
-        <div class="kit-header">
-            <h3>KIT COMPLETO DE DESENVOLVIMENTO MENTAL</h3>
-            <p>Um pacote estratégico com conteúdos que expandem sua mente, aumentam sua inteligência social e aceleram sua evolução.</p>
+        <h3 style="text-align: center; font-family: 'Syncopate'; font-size: 1rem; margin-bottom: 20px;">KIT COMPLETO DE DESENVOLVIMENTO MENTAL</h3>
+        <p style="text-align: center; color: var(--text-dim); font-size: 0.9rem; margin-bottom: 40px;">O arsenal estratégico para expandir sua mente e inteligência social.</p>
+
+        <div class="category-title">📚 BIBLIOTECA MESTRE (10 LIVROS)</div>
+        <div class="item-list">
+            <div class="item-card"><span>01</span> Como identificar um mentiroso</div>
+            <div class="item-card"><span>02</span> A sutil arte de ligar o foda-se</div>
+            <div class="item-card"><span>03</span> Convencer alguém em 90 segundos</div>
+            <div class="item-card"><span>04</span> Estoicismo: A base inabalável</div>
+            <div class="item-card"><span>05</span> Hábitos Atômicos</div>
+            <div class="item-card"><span>06</span> Mais esperto que o Diabo</div>
+            <div class="item-card"><span>07</span> O maior vendedor do mundo</div>
+            <div class="item-card"><span>08</span> O poder do agora</div>
+            <div class="item-card"><span>09</span> O poder do hábito</div>
+            <div class="item-card"><span>10</span> Pai rico pai pobre</div>
         </div>
 
-        <div class="category-title">📚 BIBLIOTECA ESTRATÉGICA (10 LIVROS)</div>
-        <div class="grid-items">
-            <div class="item-card"><span class="icon">📖</span><span class="name">Como identificar um mentiroso</span></div>
-            <div class="item-card"><span class="icon">📖</span><span class="name">A sutil arte de ligar o foda-se</span></div>
-            <div class="item-card"><span class="icon">📖</span><span class="name">Como convencer alguém em 90 segundos</span></div>
-            <div class="item-card"><span class="icon">📖</span><span class="name">Estoicismo</span></div>
-            <div class="item-card"><span class="icon">📖</span><span class="name">Hábitos atômicos</span></div>
-            <div class="item-card"><span class="icon">📖</span><span class="name">Mais esperto que o diabo</span></div>
-            <div class="item-card"><span class="icon">📖</span><span class="name">O maior vendedor do mundo</span></div>
-            <div class="item-card"><span class="icon">📖</span><span class="name">O poder do agora</span></div>
-            <div class="item-card"><span class="icon">📖</span><span class="name">O poder do hábito</span></div>
-            <div class="item-card"><span class="icon">📖</span><span class="name">Pai rico pai pobre</span></div>
-        </div>
-
-        <div class="category-title">📘 GUIAS DE IMPLEMENTAÇÃO (10 MANUAIS)</div>
-        <div class="grid-list grid-items">
-            <div class="item-card"><span class="icon">⚡</span><span class="name">Liberte seu potencial criativo</span></div>
-            <div class="item-card"><span class="icon">🤝</span><span class="name">A arte de conexões</span></div>
-            <div class="item-card"><span class="icon">🚩</span><span class="name">Zona de conforto: o maior inimigo</span></div>
-            <div class="item-card"><span class="icon">🧘</span><span class="name">Ansiedade - liberte-se</span></div>
-            <div class="item-card"><span class="icon">🔥</span><span class="name">Seja mais atraente</span></div>
-            <div class="item-card"><span class="icon">💎</span><span class="name">Autoestima</span></div>
-            <div class="item-card"><span class="icon">🩹</span><span class="name">Curando traumas</span></div>
-            <div class="item-card"><span class="icon">🎯</span><span class="name">Conquiste o foco total</span></div>
-            <div class="item-card"><span class="icon">👤</span><span class="name">Descubra a solitude</span></div>
-            <div class="item-card"><span class="icon">🛑</span><span class="name">Vença a procrastinação</span></div>
+        <div class="category-title">📘 GUIAS PRÁTICOS (10 MANUAIS)</div>
+        <div class="item-list">
+            <div class="item-card"><span>01</span> Liberte seu potencial criativo</div>
+            <div class="item-card"><span>02</span> A arte de conexões sociais</div>
+            <div class="item-card"><span>03</span> Zona de conforto: O inimigo</div>
+            <div class="item-card"><span>04</span> Ansiedade - O guia de libertação</div>
+            <div class="item-card"><span>05</span> Seja mais atraente</div>
+            <div class="item-card"><span>06</span> Autoestima blindada</div>
+            <div class="item-card"><span>07</span> Curando traumas do passado</div>
+            <div class="item-card"><span>08</span> Conquiste o foco total</div>
+            <div class="item-card"><span>09</span> Descubra o poder da solitude</div>
+            <div class="item-card"><span>10</span> Vença a procrastinação hoje</div>
         </div>
     </section>
 
-    <section class="container" id="oferta">
+    <section class="container">
         <div class="anchor-box">
-            <h4>INVESTIMENTO SEPARADO</h4>
-            <div class="price-row"><span>📚 10 Livros Estruturados</span> <span>R$ 492,99</span></div>
-            <div class="price-row"><span>📘 10 Guias de Ação</span> <span>R$ 234,90</span></div>
-            <div class="price-row total"><span>VALOR TOTAL:</span> <span class="strike">R$ 727,89</span></div>
-            
-            <div class="final-offer">
-                <p>Mas hoje… você não vai pagar isso.</p>
-                <div class="price-tag"><small>R$</small>39,90</div>
-                <div class="price-sub">Pagamento único • Acesso imediato</div>
-            </div>
+            <div class="anchor-row"><span>10 Livros Estruturados</span> <span>R$ 492,99</span></div>
+            <div class="anchor-row"><span>10 Guias de Ação</span> <span>R$ 234,90</span></div>
+            <div class="anchor-total">VALOR REAL: <span class="strike">R$ 727,89</span></div>
+            <p style="margin-top: 20px; font-size: 0.8rem; color: var(--accent);">Mas você não vai pagar isso hoje.</p>
         </div>
     </section>
 
-    <section class="container benefits-list">
-        <div class="benefit-item"><span class="check">✔</span> <p>Mais <b>inteligência social</b> para ler qualquer ambiente.</p></div>
-        <div class="benefit-item"><span class="check">✔</span> <p>Mais <b>controle emocional</b> para não reagir por impulso.</p></div>
-        <div class="benefit-item"><span class="check">✔</span> <p>Mais <b>clareza mental</b> para tomar decisões difíceis.</p></div>
-        <div class="benefit-item"><span class="check">✔</span> <p>Mais <b>repertório</b> para ser uma pessoa magnética.</p></div>
-        <div class="benefit-item"><span class="check">✔</span> <p>Mais <b>poder de decisão</b> e autoridade.</p></div>
+    <section class="container benefits">
+        <div class="benefit-item"><i>✔</i> <p>Mais <b>inteligência social</b> imediata.</p></div>
+        <div class="benefit-item"><i>✔</i> <p>Mais <b>controle emocional</b> sob pressão.</p></div>
+        <div class="benefit-item"><i>✔</i> <p>Mais <b>clareza mental</b> para decidir.</p></div>
+        <div class="benefit-item"><i>✔</i> <p>Mais <b>repertório</b> em conversas.</p></div>
     </section>
 
-    <section class="container visualization">
-        <h4>IMAGINE O SEU NOVO EU...</h4>
-        <p class="v-text">Você entendendo pessoas rapidamente, antes mesmo delas falarem.</p>
-        <p class="v-text">Você sabendo exatamente o que falar para conseguir o que quer.</p>
-        <p class="v-text">Você com controle emocional total enquanto todos ao seu redor entram em pânico.</p>
+    <section class="container visual">
+        <h4>IMAGINE ISSO:</h4>
+        <p>Você entendendo as intenções das pessoas rapidamente.</p>
+        <p>Você sabendo exatamente o que falar em qualquer mesa.</p>
+        <p>Você com controle emocional absoluto enquanto outros se desesperam.</p>
     </section>
 
     <section class="container testimonials">
-        <h4 style="text-align: center; font-family: 'Syncopate'; font-size: 0.7rem; color: #444; margin-bottom: 30px; letter-spacing: 2px;">QUEM JÁ FEZ O UPGRADE</h4>
+        <h3 style="text-align: center; font-family: 'Syncopate'; font-size: 0.7rem; color: #444; margin-bottom: 30px; letter-spacing: 2px;">QUEM JÁ ADQUIRIU O KIT:</h3>
         
-        <div class="t-card"><span class="t-header">★★★★★</span><p class="t-content">"Isso aqui abriu minha mente. Eu já tinha o método, mas agora tenho o conhecimento pra aplicar."</p><span class="t-user">— @lucasx</span></div>
-        <div class="t-card"><span class="t-header">★★★★</span><p class="t-content">"Muito conteúdo útil por um preço ridículo. Vale mais que o preço de um lanche."</p><span class="t-user">— @joaovr_</span></div>
-        <div class="t-card"><span class="t-header">★★★★★</span><p class="t-content">"O guia de ansiedade e o resumo de Hábitos Atômicos valem o kit todo sozinhos."</p><span class="t-user">— @caiosilva</span></div>
-        <div class="t-card"><span class="t-header">★★★★★</span><p class="t-content">"Melhor upgrade que eu fiz. A curadoria dos livros é fantástica."</p><span class="t-user">— @m_santos</span></div>
-        <div class="t-card"><span class="t-header">★★★★★</span><p class="t-content">"Conteúdo direto ao ponto. Sem enrolação."</p><span class="t-user">— @vitor.augusto</span></div>
-        <div class="t-card"><span class="t-header">★★★★★</span><p class="t-content">"Os manuais de ação são o diferencial. Você termina de ler e já sabe o que fazer."</p><span class="t-user">— @rafa_</span></div>
-        <div class="t-card"><span class="t-header">★★★★★</span><p class="t-content">"Eu não tinha o hábito de ler, mas esses resumos facilitam demais a vida."</p><span class="t-user">— @gui_ferreira</span></div>
-        <div class="t-card"><span class="t-header">★★★★★</span><p class="t-content">"Sentindo minha confiança aumentar a cada guia que leio."</p><span class="t-user">— @andrezin</span></div>
-        <div class="t-card"><span class="t-header">★★★★★</span><p class="t-content">"Risco zero. O conteúdo é realmente premium."</p><span class="t-user">— @leandro.m</span></div>
-        <div class="t-card"><span class="t-header">★★★★★</span><p class="t-content">"Minha inteligência social deu um salto gigante."</p><span class="t-user">— @thiago_v</span></div>
+        <div class="t-card"><span class="t-stars">★★★★★</span><p>Isso aqui abriu minha mente de um jeito que eu não esperava.</p><span class="t-user">— @lucasx</span></div>
+        <div class="t-card"><span class="t-stars">★★★★</span><p>Muito conteúdo útil. Os manuais práticos são diretos ao ponto.</p><span class="t-user">— @joaovr_</span></div>
+        <div class="t-card"><span class="t-stars">★★★★★</span><p>Vale dez vezes mais que o preço cobrado. O repertório que ganhei é bizarro.</p><span class="t-user">— @caiosilva</span></div>
+        <div class="t-card"><span class="t-stars">★★★★★</span><p>O guia de ansiedade salvou meu mês. Recomendo o upgrade.</p><span class="t-user">— @ana_clara</span></div>
+        <div class="t-card"><span class="t-stars">★★★★★</span><p>Finalmente entendi como os livros se conectam na prática.</p><span class="t-user">— @m_santos</span></div>
+        <div class="t-card"><span class="t-stars">★★★★★</span><p>Melhor investimento que fiz esse ano.</p><span class="t-user">— @gui_ferreira</span></div>
+        <div class="t-card"><span class="t-stars">★★★★</span><p>Os resumos são muito bem estruturados. Economiza muito tempo.</p><span class="t-user">— @vitor.augusto</span></div>
+        <div class="t-card"><span class="t-stars">★★★★★</span><p>A parte de estoicismo é fundamental. Mudou meu jogo.</p><span class="t-user">— @rafa_</span></div>
+        <div class="t-card"><span class="t-stars">★★★★★</span><p>Acesso imediato e material de altíssima qualidade.</p><span class="t-user">— @andrezin</span></div>
+        <div class="t-card"><span class="t-stars">★★★★★</span><p>Não tem como se arrepender por esse valor.</p><span class="t-user">— @leandro.m</span></div>
     </section>
 
-    <section class="container urgency-banner">
-        <span class="urgency-tag">A oferta expira em breve</span>
-        <div class="final-trigger">
-            <p>Você pode parar por aqui… E continuar evoluindo devagar.</p>
-            <p style="font-weight: 800;">Ou você pode acelerar tudo agora.</p>
+    <section class="container urgency">
+        <p>ESSA OFERTA SÓ APARECE AGORA</p>
+    </section>
+
+    <section id="oferta" class="container cta-box">
+        <p class="decision-text">Você pode parar por aqui… E continuar evoluindo devagar.<br><b>Ou você pode acelerar tudo agora.</b></p>
+        
+        <div class="price-display">
+            <span class="old-price">De R$ 727,89 por apenas:</span>
+            <span class="new-price">R$ 39,90</span>
         </div>
-    </section>
 
-    <section class="cta-section container">
-        <a href="https://pay.kiwify.com.br/SEU_LINK_AQUI" class="btn-premium">QUERO O KIT COMPLETO AGORA</a>
+        <a href="https://pay.kiwify.com.br/SEU_LINK_AQUI" class="btn-premium">QUERO ACESSO COMPLETO POR R$39,90</a>
         
-        <span class="microcopy">Acesso imediato após pagamento • Sem risco</span>
+        <span class="microcopy">Acesso imediato • Pagamento único • Sem risco</span>
 
-        <a href="#" class="btn-refusal">Não, quero evoluir mais devagar</a>
+        <a href="#" class="btn-refuse">Não, quero continuar no mesmo nível</a>
     </section>
 
-    <section class="guarantee-fold">
+    <section class="guarantee">
         <div class="container">
-            <img src="https://cdn-icons-png.flaticon.com/512/2550/2550354.png" class="g-icon" alt="Garantia">
             <h4>RISCO ZERO – 7 DIAS</h4>
             <p>Teste o conteúdo. Se por qualquer motivo não gostar, devolvemos 100% do seu dinheiro. Sem perguntas.</p>
         </div>
     </section>
 
-    <section class="final-closing container">
-        <p>Você chegou até aqui. Isso significa que você sabe que precisa muda
+    <footer>
+        <div class="container">
+            <p style="font-size: 1.1rem; color: #666; margin-bottom: 40px;">Você chegou até aqui. Isso significa que você sabe que precisa mudar. Agora só depende de você agir.</p>
+            
+            <div class="contact-info">
+                <h5>SUPORTE E CONTATO</h5>
+                <a href="mailto:evoluglow03@gmail.com" class="contact-link">evoluglow03@gmail.com</a>
+                <a href="https://instagram.com/evollgg" class="contact-link">@evollgg</a>
+                <a href="https://wa.me/5511960947920" class="contact-link">+55 11 96094-7920</a>
+            </div>
+
+            <p class="footer-legal">© 2026 EVOLUGLOW • TODOS OS DIREITOS RESERVADOS</p>
+        </div>
+    </footer>
+
+    <script>
+        // Fundo Animado (Particles)
+        const canvas = document.getElementById('canvas-bg');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+        window.addEventListener('resize', resize); resize();
+        class Particle {
+            constructor() { this.reset(); }
+            reset() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.size = Math.random() * 1.5; this.speed = Math.random() * 0.3; this.opacity = Math.random() * 0.3; }
+            update() { this.y -= this.speed; if (this.y < -10) this.reset(); }
+            draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fillStyle = `rgba(255,255,255,${this.opacity})`; ctx.fill(); }
+        }
+        for (let i = 0; i < 60; i++) particles.push(new Particle());
+        function animate() { ctx.clearRect(0, 0, canvas.width, canvas.height); particles.forEach(p => { p.update(); p.draw(); }); requestAnimationFrame(animate); }
+        animate();
+    </script>
+</body>
+        </html>
+        
